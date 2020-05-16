@@ -1,0 +1,54 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class student {
+public:
+	student(){}
+	void set(int ns, int nn) {
+		score = ns;
+		no = nn;
+	}
+	void display();
+	friend void pai(student stu[],int num);
+private:
+	int score;
+	int no;
+};
+
+void pai(student stu[],int num) {
+	int i, j;
+	student stu0;
+	for (i = 0; i < num; i++) {
+		for (j = 0; j < num - i-1; j++) {
+			if (stu[j].score < stu[j + 1].score) {
+				stu0=stu[j];
+				stu[j] = stu[j + 1];
+				stu[j + 1] = stu0;
+			}
+		}
+	}
+}
+void student::display() {
+	cout << "学号:" << no;
+	cout << "  成绩:" << score << endl;
+}
+
+int main()
+{
+	int num;
+	cin >> num;
+	student stu[100];
+	int i;
+	int ns, nn;
+	for (i =0 ; i < num; i++) {
+		cin >> nn >> ns;
+		stu[i].set(ns, nn);
+	}
+	pai(stu, num);
+	for (i = 0; i < num; i++) {
+		stu[i].display();
+	}
+
+	return 0;
+}

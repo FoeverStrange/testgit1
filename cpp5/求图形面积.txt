@@ -1,0 +1,81 @@
+// ConsoleApplication10.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+//
+
+#include <iostream>
+using namespace std;
+
+const float pi = 3.14;
+
+class shape {
+public:
+    shape(float x, float y):width(x),height(y){}
+    virtual float area() {
+        return 0;
+    }
+    virtual void out() {
+
+    }
+protected:
+    float  width;
+    float height;
+};
+
+class triangle :public shape {
+public:
+    triangle(float x, float y):shape(x,y){}
+    float area() {
+        return (width * height/2);
+    }
+    void out() {
+        cout << "triangleArea=" << this->area() << endl;
+    }
+};
+class rectangle :public shape {
+public:
+    rectangle(float x, float y):shape(x,y){}
+    float area() {
+        
+        
+        return (width * height);
+    }
+    void out() {
+        cout << "rectangleArea=" << this->area() << endl;
+    }
+};
+class circle :public shape {
+public:
+    circle(float x, float y):shape(x,y){}
+    float area() {
+        return(width * width * pi);
+    }
+    void out() {
+        cout << "circleArea=" << this->area() << endl;
+    }
+};
+int main()
+{
+    shape* pshape;
+    float x, y;
+    cin >> x >> y;
+    triangle tri(x, y);
+    rectangle rec(x, y);
+    circle cir(x, y);
+
+    pshape = &tri;
+    pshape->out();
+    pshape = &rec;
+    pshape->out();
+    pshape = &cir;
+    pshape->out();
+}
+
+// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
+// 调试程序: F5 或调试 >“开始调试”菜单
+
+// 入门使用技巧: 
+//   1. 使用解决方案资源管理器窗口添加/管理文件
+//   2. 使用团队资源管理器窗口连接到源代码管理
+//   3. 使用输出窗口查看生成输出和其他消息
+//   4. 使用错误列表窗口查看错误
+//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
+//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件

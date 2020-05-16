@@ -1,0 +1,134 @@
+// ConsoleApplication9.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+//
+
+#include <iostream>
+#include<string.h>
+
+using namespace std;
+
+class book {
+public:
+    book(char new_no[], char new_name[], char new_concern[], float new_price) {
+        strcpy(book_no, new_no);
+        strcpy(book_name, new_name);
+        strcpy(book_concern, new_concern);
+        book_price = new_price;
+    }
+    char* getno() {
+        char* p = new char[11];
+        strcpy(p, book_no);
+        return p;
+    }
+    char* getname() {
+        char* p = new char[21];
+        strcpy(p, book_name);
+        return p;
+    }
+    char* getconcern() {
+        char* p = new char[21];
+        strcpy(p, book_concern);
+        return p;
+    }
+    void showprice() {
+        cout <<"Price:"<< book_price << endl;
+    }
+private:
+    //数据成员包括：书号、书名、出版社和定价
+    char book_no[11];
+    char book_name[21];
+    char book_concern[21];
+    float book_price;
+};
+
+class auther {
+public:
+    auther(char new_name[], int new_age, int newy, int newm, int newd) {
+        strcpy(author_name, new_name);
+        author_age = new_age;
+        printy = newy;
+        printm = newm;
+        printd = newd;
+    }
+    char* get_a_name() {
+        char* p = new char[21];
+        strcpy(p, author_name);
+        return p;
+    }
+    int get_a_age() { return author_age; }
+    int get_printy() { return printy; }
+    int get_printm() { return printm; }
+    int get_printd() { return printd; }
+private:
+    //数据成员包括：姓名、年龄和写作时间
+    char author_name[21];
+    int author_age;
+    int printy;
+    int printm;
+    int printd;
+};
+class card:public book,public auther {
+    //数据成员表示书籍系统名称，及一个可以显示系统名称、书名、作者、作者年龄、出版社和定价等数据的函数。
+public:
+    card(char nsys_name[], char nb_name[], char na_name[], int na_age, char nb_concern[], float nb_price, char nb_no[], int na_y, int na_m, int na_d)
+        :book(nb_no, nb_name, nb_concern, nb_price), auther(na_name, na_age, na_y, na_m, na_d) {
+        strcpy(sysname, nsys_name);
+    }
+    void show_all();
+private:
+    char sysname[21];
+};
+
+void card::show_all() {
+    /*SysName:BitLibrary
+Num:1001
+BookName:C++Language
+BookConcern:Bitcon
+Price:24.8
+AuthorName:Lichunbao
+AuthorAge:40
+PrintTime:2001-10-10*/
+    printf("SysName:%s\n", sysname);
+    printf("Num:%s\n", getno());
+    printf("BookName:%s\n", getname());
+    printf("BookConcern:%s\n", getconcern());
+    showprice();
+    printf("AuthorName:%s\n", get_a_name());
+    printf("AuthorAge:%d\n", get_a_age());
+    printf("PrintTime:%d-%d-%d\n", get_printy(), get_printm(), get_printd());
+}
+
+int main()
+{
+    char sys_name[21];
+    scanf("%s", sys_name);
+    char b_no[11];
+    scanf("%s", b_no);
+    char b_name[21];
+    scanf("%s", b_name);
+    char b_concern[21];
+    scanf("%s", b_concern);
+    float b_price;
+    cin >> b_price;
+    char a_name[21];
+    scanf("%s", a_name);
+    int a_age;
+    cin >> a_age;
+    int printy, printm, printd;
+    cin >> printy >> printm >> printd;
+
+    card card1(sys_name, b_name, a_name, a_age, b_concern, b_price, b_no, printy, printm, printd);
+    card1.show_all();
+
+
+}
+
+// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
+// 调试程序: F5 或调试 >“开始调试”菜单
+
+// 入门使用技巧: 
+//   1. 使用解决方案资源管理器窗口添加/管理文件
+//   2. 使用团队资源管理器窗口连接到源代码管理
+//   3. 使用输出窗口查看生成输出和其他消息
+//   4. 使用错误列表窗口查看错误
+//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
+//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件

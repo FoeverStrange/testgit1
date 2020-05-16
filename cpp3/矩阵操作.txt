@@ -1,0 +1,84 @@
+#include <iostream>
+using namespace std;
+
+class matrix {
+public:
+    matrix(int x, int y);
+    ~matrix();
+    void set(int na, int i, int j) {
+        p[i][j] = na;
+    }
+    int operator() (int i, int j);
+private:
+    int** p;
+    int m,n;
+};
+
+inline int matrix::operator() (int i, int j) {
+    return p[i][j];
+}
+matrix::matrix(int x, int y)
+{
+    m = x;
+    n = y;
+    int i;
+    p = new int* [m];
+    for ( i = 0; i < m; i++){
+        p[i] = new int[n];
+    }
+}
+matrix::~matrix() {
+    int i;
+    for (i = 0; i < m; i++) {
+        delete[] p[i];
+        //delete[] p;
+    }
+    delete[] p;
+}
+
+int main()
+{
+    int row, colum;
+    cin >> row >> colum;
+    int i, j, k;
+    matrix m1(row, colum);
+    matrix m2(row, colum);
+    for (i = 0, j = 0; i < row; i++) {
+        for (j = 0; j < colum; j++) {
+            cin >> k;
+            m1.set(k, i, j);
+        }
+    }
+    for (i = 0; i < row; i++) {
+        for (j = 0; j < colum; j++) {
+            cin >> k;
+            m2.set(k, i, j);
+        }
+    }
+
+    cout << "c=a+b" << endl;
+    for (i = 0; i < row; i++) {
+        for (j = 0; j < colum; j++) {
+            cout << m1(i, j) + m2(i, j) << " ";
+        }
+        cout << endl;
+    }
+
+    cout << "c=a-b" << endl;
+    for (i = 0; i < row; i++) {
+        for (j = 0; j < colum; j++) {
+            cout << m1(i, j) - m2(i, j) << " ";
+        }
+        cout << endl;
+    }
+
+    cout << "c=a*b" << endl;
+    for (i = 0; i < row; i++) {
+        for (j = 0; j < colum; j++) {
+            cout << m1(i, j) * m2(i, j) << " ";
+
+        }
+        cout << endl;
+    }
+    return 0;
+}

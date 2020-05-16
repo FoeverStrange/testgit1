@@ -1,0 +1,68 @@
+// ConsoleApplication10.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+//
+
+#include <iostream>
+using namespace std;
+
+class Felid {
+    //Felid包含构造函数、析构函数和纯虚函数sound
+public:
+    Felid() {
+        cout << "Felid constructor" << endl;
+    };
+    virtual ~Felid() {
+        cout << "Felid destructor" << endl;
+    }
+    virtual void sound() = 0;
+
+
+};
+
+class Cat :public Felid {
+    //Cat包含构造函数、析构函数和虚函数sound
+public:
+    Cat(){
+        cout << "Cat constructor" << endl;
+    }
+    ~Cat() {
+        cout << "Cat destructor" << endl;
+    }
+    virtual void sound() {
+        cout << "Miaow !" << endl;
+    }
+};
+class Leopard :public Felid {
+    //Leopard包含构造函数、析构函数和虚函数sound
+public:
+    Leopard() {
+        cout << "Leopard constructor" << endl;
+    }
+    ~Leopard() {
+        cout << "Leopard destructor" << endl;
+    }
+    virtual void sound() {
+        cout << "Howl !" << endl;
+    }
+};
+int main()
+{
+    //定义一个Felid类指针，采用动态内存分配的方式建议一个Cat对象，并且调用sound函数，之后撤销该对象，采用动态内存分配的方式建议一个Leopard对象，并且调用sound函数，之后撤销该对象。
+    Felid* pfelid;
+    pfelid = new Cat;
+    pfelid->sound();
+    delete pfelid;
+    pfelid = new Leopard;
+    pfelid->sound();
+    delete pfelid;
+}
+
+// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
+// 调试程序: F5 或调试 >“开始调试”菜单
+
+// 入门使用技巧: 
+//   1. 使用解决方案资源管理器窗口添加/管理文件
+//   2. 使用团队资源管理器窗口连接到源代码管理
+//   3. 使用输出窗口查看生成输出和其他消息
+//   4. 使用错误列表窗口查看错误
+//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
+//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件

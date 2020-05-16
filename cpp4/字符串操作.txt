@@ -1,0 +1,107 @@
+// ConsoleApplication9.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+//
+
+#include <iostream>
+#include<string.h>
+using namespace std;
+const int N = 101;
+
+class BaseString {
+
+    char* Chstr;
+
+    int Length;
+
+public:
+
+    BaseString(char* s) {
+        //Chstr = new char[N];
+        //strcpy(Chstr, s);
+        Chstr = s;
+        Length = strlen(s);
+    }
+    char* GetString() { return Chstr; }
+    int GetLength() { return Length; }
+
+};
+
+class ReString :public BaseString {
+public:
+    ReString(char* s) :BaseString(s) {
+    }
+    //ReString(){}
+    void restring() {
+        char*s= GetString();
+        int i = 0;
+        int j = 0;
+        int n = GetLength();
+        for ( i = 0, j = n - 1; i < j; i++, j--) {
+            char c = s[i];
+            s[i] = s[j];
+            s[j] = c;
+        }
+        //strrev(s);
+        printf("倒序输出：%s\n", s);
+    }
+};
+class CopyString :public BaseString {
+public:
+    CopyString(char* s):BaseString(s){}
+    void copystring() {
+        char* s = GetString();
+        char* s2 = new char[N];
+        strcpy(s2, s);
+        printf("复制输出：%s\n", s);
+    }
+};
+class CmpString :public BaseString {
+public:
+    CmpString(char*s):BaseString(s){
+        cmpstr=GetString();
+    }
+    void friend cmpstring(CmpString str1,CmpString str2);
+    char* cmpstr;
+};
+void cmpstring(CmpString str1, CmpString str2) {
+    int flag;
+    flag = strcmp(str1.cmpstr, str2.cmpstr);
+    if (flag == 0) cout << "判断结果：两字符串相等。" << endl;
+    else cout << "判断结果：两字符串不相等。" << endl;
+}
+
+   
+
+
+int main()
+{
+    char str1[N];
+    char str2[N];
+    char str3[N];
+    char str4[N];
+    cin.getline(str1,  N);
+    cin.getline(str2, N);
+    cin.getline(str3, N);
+    cin.getline(str4, N);
+    ReString sss1(str1);
+    
+    CopyString sss2(str2);
+    
+    CmpString sss3(str3);
+    CmpString sss4(str4);
+    sss1.restring();
+    sss2.copystring();
+    cmpstring(sss3, sss4);
+    //CopyString(str2);
+
+}
+
+// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
+// 调试程序: F5 或调试 >“开始调试”菜单
+
+// 入门使用技巧: 
+//   1. 使用解决方案资源管理器窗口添加/管理文件
+//   2. 使用团队资源管理器窗口连接到源代码管理
+//   3. 使用输出窗口查看生成输出和其他消息
+//   4. 使用错误列表窗口查看错误
+//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
+//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件

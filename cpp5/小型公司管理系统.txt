@@ -1,0 +1,112 @@
+// ConsoleApplication10.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+//
+
+#include <iostream>
+#include<string.h>
+using namespace std;
+
+class Employee {
+    //姓名和月工资信息
+public:
+    Employee(char* nname) {
+        name = new char[21];
+        strcpy(name, nname);
+        
+    }
+protected:
+    char* name;
+    int money=0;
+};
+//经理(manager)、技术人员(technician)、销售(salesmanager)、销售经理(salesmanager)
+class Manager :public Employee {
+public:
+    Manager(char* nname):Employee(nname){}
+    void compute_salary() {
+        money = 8000;
+    }
+    void check_salary(){
+        //Tom本月工资8000
+        compute_salary();
+        printf("%s本月工资%d\n", name, money);
+    }
+};
+class Technician :public Employee {
+public:
+    Technician(char* nname, int nt ):Employee(nname),time(nt){}
+    void set_time(int ntime) {
+        time = ntime;
+    }
+    void compute_salary() {
+        
+        money = time * 100;
+    }
+    void chech_salary() {
+        compute_salary();
+        printf("%s本月工资%d\n", name, money);
+    }
+private:
+    int time;
+};
+class Salesmanager :public Employee {
+public:
+    Salesmanager(char* nname,int tsm):Employee(nname),total_sale_money(tsm){}
+    void set_tsm(int ntsm) {
+        total_sale_money = ntsm;
+    }
+    void compute_salary() {
+        money = 5000 + total_sale_money * 0.005;
+    }
+    void check_money() {
+        compute_salary();
+        printf("%s本月工资%d\n", name, money);
+    }
+private:
+    int total_sale_money;
+};
+class Salesman :public Employee {
+public:
+    Salesman(char*nname,int nsm):Employee(nname),sale_money(nsm){}
+    void set_sm(int nsm) {
+        sale_money = nsm;
+    }
+    void compute_salary() {
+        money = sale_money * 0.04;
+    }
+    void check_money() {
+        compute_salary();
+        printf("%s本月工资%d\n", name, money);
+    }
+private:
+    int sale_money;
+};
+int main()
+{
+    int time, total_sale, sale;
+    cin >> time >> total_sale >> sale;
+    char name[21];
+    strcpy(name, "Tom");
+    Manager manager(name);
+    strcpy(name, "John");
+    Technician tech(name,time);
+    strcpy(name, "Antony");
+    Salesmanager smana(name, total_sale);
+    strcpy(name, "Jane");
+    Salesman sman(name, sale);
+
+    manager.check_salary();
+    tech.chech_salary();
+    smana.check_money();
+    sman.check_money();
+
+}
+
+// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
+// 调试程序: F5 或调试 >“开始调试”菜单
+
+// 入门使用技巧: 
+//   1. 使用解决方案资源管理器窗口添加/管理文件
+//   2. 使用团队资源管理器窗口连接到源代码管理
+//   3. 使用输出窗口查看生成输出和其他消息
+//   4. 使用错误列表窗口查看错误
+//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
+//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件

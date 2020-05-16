@@ -1,0 +1,108 @@
+// ConsoleApplication9.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+//
+
+#include <iostream>
+#include<string.h>
+#include<cstdio>
+#include <stdio.h>
+using namespace std;
+
+
+class person {
+public:
+    person(char new_name[], char new_number[]) {
+        strcpy(name, new_name);
+        strcpy(number, new_number);
+    }
+    void show_name() {
+        cout << "Name:";
+        printf("%s\n", name);
+    }
+    void show_number() {
+        cout << "Number:";
+        printf("%s\n", number);
+    }
+private:
+    char name[21];  
+    char number[21];
+};
+
+class student :public person {
+public:
+    student(char new_name[], char new_number[], char new_course[], float new_grade):person(new_name,new_number) {
+        strcpy(course, new_course);
+        grade = new_grade;
+    }
+    void show_course_and_grade() {
+        cout << "Course:";
+        printf("%s\n", course);
+        cout << "Grade:" << grade << endl;
+        
+    }
+private:
+    char course[21];
+    float grade;
+};
+class teacher :public person {
+public:
+    teacher(char new_name[], char new_number[], char new_pro[], int new_paper):person(new_name,new_number) {
+        strcpy(pro, new_pro);
+        paper = new_paper;
+    }
+    void show_pro_and_paper() {
+        printf("pro:%s\n", pro);
+        //cout << "pro:" << pro << endl;
+        cout << "paper:" << paper << endl;
+    }
+private:
+    char pro[21];
+    int paper;
+};
+
+int main()
+{
+    char stu_name[21]; 
+    char stu_number[21];
+    char stu_course[21];
+    float stu_grade;
+    //gets(stu_name);
+    //gets(stu_number);
+    scanf("%s", stu_name);
+    scanf("%s", stu_number);
+    scanf("%s", stu_course);
+    scanf("%f", &stu_grade);
+    char tea_name[21];
+    char tea_number[21];
+    char tea_pro[21];
+    int tea_paper;
+    scanf("%s", tea_name);
+    scanf("%s", tea_number);
+    scanf("%s", tea_pro);
+    scanf("%d", &tea_paper);
+    student stu1(stu_name, stu_number, stu_course, stu_grade);
+    cout << "Studentinformation:" << endl;
+    stu1.show_name();
+    stu1.show_number();
+    stu1.show_course_and_grade();
+    cout << endl;
+    
+    teacher tea1(tea_name, tea_number, tea_pro, tea_paper);
+    cout << "Teacherinformation:" << endl;
+    tea1.show_name();
+    tea1.show_number();
+    tea1.show_pro_and_paper();
+
+
+
+}
+
+// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
+// 调试程序: F5 或调试 >“开始调试”菜单
+
+// 入门使用技巧: 
+//   1. 使用解决方案资源管理器窗口添加/管理文件
+//   2. 使用团队资源管理器窗口连接到源代码管理
+//   3. 使用输出窗口查看生成输出和其他消息
+//   4. 使用错误列表窗口查看错误
+//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
+//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件

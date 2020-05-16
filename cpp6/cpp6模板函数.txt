@@ -1,0 +1,10 @@
+template<typename T>
+T getSum(T x[],int n) {
+    T Sum = 0;
+    int i = 0;
+    for (i = 0; i < n; i++) {
+        Sum += x[i];
+    }
+
+    return Sum;
+}

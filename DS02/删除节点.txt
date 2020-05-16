@@ -1,0 +1,112 @@
+// ConsoleApplication13.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+//
+
+#include <iostream>
+
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* link;
+    Node(Node* p = 0) {
+        link = p;
+    }
+    Node(int& x, Node* p = 0) {
+        link = p;
+        data = x;
+    }
+};
+
+
+
+int main()
+{
+    char str[101];
+    int num[101] = { 0 };
+    gets(str);
+    int i, j = 0;
+    int count = 0;
+    for (i = 0; str[i] != '\0'; i++) {
+        //printf("%c\n",str[i]);
+        if (str[i] == ' ') {
+            j++;
+            //printf("%d\n", j);
+            //count++;
+            continue;
+        }
+        num[j] = num[j] * 10 + str[i] - '0';
+    }
+    j++;
+    //printf("一共有%d个数\n", j);
+    count = j;
+
+    //建立链表
+    Node Head;
+    Node* pn;
+    Node* npn;
+    Head.link = new Node;
+    pn = Head.link;
+    pn->data = num[0];
+
+    for (i = 1; i < count; i++) {
+        pn->link = new Node;
+        npn = pn->link;
+        npn->data = num[i];
+        pn = npn;
+    }
+    pn->link = NULL;
+    /*测试链表
+    pn=Head.link;
+    for (i=0;i<count;i++){
+
+        printf("分别是%d\n",pn->data);
+        pn=pn->link;
+    }
+    */
+
+    //查找删除
+    int find;
+    int flag=0;
+    cin >> find;
+    pn = Head.link;
+    npn=&Head;
+    Node* nnpn=NULL;
+    //printf("Head.link->data:%d\n",pn->data);
+    if(pn->data==find){
+    	flag=1;
+	}
+	else{
+		nnpn=npn;
+		npn=pn;
+		pn=pn->link;
+	}
+    while (pn != NULL&&pn->data!=find&&flag!=1) {
+    	nnpn=npn;
+        npn = pn;
+        pn = pn->link;
+    }
+    if (pn == NULL) cout << "error!" << endl;
+    else if(flag!=1){
+        nnpn->link = npn->link;
+        
+    }
+    pn = Head.link;
+    while (pn != NULL) {
+        printf("%d ", pn->data);
+        pn=pn->link;
+    }
+    printf("\n");
+
+}
+
+// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
+// 调试程序: F5 或调试 >“开始调试”菜单
+
+// 入门使用技巧: 
+//   1. 使用解决方案资源管理器窗口添加/管理文件
+//   2. 使用团队资源管理器窗口连接到源代码管理
+//   3. 使用输出窗口查看生成输出和其他消息
+//   4. 使用错误列表窗口查看错误
+//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
+//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件

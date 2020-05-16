@@ -1,0 +1,35 @@
+// ConsoleApplication8.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+//
+
+#include <iostream>
+using namespace std;
+
+class Point {
+public:
+    Point(int nx, int ny) :x(nx),y(ny){
+    }
+    int Getx() { return x; }
+    int Gety() { return y; }
+private:
+    int x;
+    int y;
+
+};
+
+class Circle :public Point {
+public:
+    Circle(int nx,int ny,int nr):Point(nx,ny),r(nr){}
+    int GetR() { return r; }
+    float Area() { return 3.14 * r * r; }
+private:
+    int r;
+};
+
+int main()
+{
+    int x, y, r;
+    cin >> x >> y >> r;
+    Circle c1(x, y, r);
+    printf("圆心位于(%d,%d)半径为%d的圆形面积是%.2f\n",c1.Getx(),c1.Gety(),c1.GetR(),c1.Area());
+}
+

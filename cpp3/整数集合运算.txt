@@ -1,0 +1,112 @@
+// ConsoleApplication4.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+//
+
+#include <iostream>
+using namespace std;
+
+class in {
+public:
+    in(int x):num(x){}
+    in(){}
+    friend in operator+(const in& x1,const in& x2);
+    friend in operator-(const in& x1, const in& x2);
+    void setin(int nnn[]) {
+        
+    }
+
+    int num;
+    int inn[100];
+};
+
+in operator+(const in &x1,const in &x2) {
+    in inn;
+    int i, j, flag=1, k;
+   
+    
+    for (i = 0; i < x1.num; i++) inn.inn[i] = x1.inn[i];
+    
+    for (i = 0,k=0,flag=1; i < x2.num; i++,flag=1) {
+        for (j = 0; j < x1.num; j++) {
+            if (x2.inn[i] == x1.inn[j]) {
+                flag = 0;
+                break;
+            }
+            
+        }
+        if (flag == 1) {
+
+            inn.inn[x1.num + k] = x2.inn[i];
+            k++;
+        }
+    }
+    
+    inn.num = x1.num + k;
+    return inn;
+}
+
+in operator- (const in& x1, const in& x2) {
+    in inn;
+    int i, j, flag, k;
+    for (i = 0,k=0; i < x1.num; i++) {
+        for (j = 0,flag=1; j < x2.num; j++) {
+            if (x1.inn[i] == x2.inn[j]) {
+                flag = 0;
+                break;
+            }
+        }
+        if (flag == 1) {
+            inn.inn[k] = x1.inn[i];
+            k++;
+        }
+
+    }
+    inn.num = k;
+    return inn;
+}
+
+int main()
+{
+    int num1, num2;
+    int num11[100], num22[100];
+    cin >> num1;
+    int i;
+    int num;
+    in s1(num1);
+    for (i = 0; i < num1; i++) {
+        cin >> num;
+        s1.inn[i] = num;
+    }
+    
+    cin >> num2;
+    in s2(num2);
+    for (i = 0; i < num2; i++) {
+        cin >> num;
+        s2.inn[i] = num;
+    }
+
+    in ino = s1 + s2;
+    cout << "int1+int2=";
+    for (i = 0; i < ino.num; i++) {
+        cout << ino.inn[i] << " ";
+    }
+    cout << endl;
+   // cout << ino.num;
+    ino = s1 - s2;
+    cout << "int1-int2=";
+    for (i = 0; i < ino.num; i++) {
+        cout << ino.inn[i] << " ";
+    }
+    cout << endl;
+
+}
+
+// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
+// 调试程序: F5 或调试 >“开始调试”菜单
+
+// 入门使用技巧: 
+//   1. 使用解决方案资源管理器窗口添加/管理文件
+//   2. 使用团队资源管理器窗口连接到源代码管理
+//   3. 使用输出窗口查看生成输出和其他消息
+//   4. 使用错误列表窗口查看错误
+//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
+//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件

@@ -1,0 +1,28 @@
+#include <iostream>
+#include<math.h>
+using namespace std;
+class CPoint {
+public:
+    CPoint(int nx, int ny) :x(nx),y(ny){
+    }
+    friend float Distance(CPoint a,CPoint b);
+private:
+    int x;
+    int y;
+};
+
+float Distance(CPoint a,CPoint b) {
+    float dx = a.x - b.x;
+    float dy = a.y - b.y;
+    float dx2 = dx * dx;
+    float dy2 = dy * dy;
+    return sqrt(dx2 + dy2);
+}
+
+int main()
+{
+    int x1, y1, x2, y2;
+    cin >> x1 >> y1 >> x2 >> y2;
+    CPoint p1(x1, y1), p2(x2, y2);
+    cout << "Distance="<<Distance(p1, p2) << endl;
+}

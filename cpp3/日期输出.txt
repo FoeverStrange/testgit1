@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class Date {
+public:
+    Date(int y, int m, int d) :year(y),month(m),day(d){};
+    friend ostream& operator<< (ostream & out, Date & nd);
+
+private:
+    int year;
+    int month;
+    int day;
+};
+
+ostream& operator<< (ostream& out, Date& nd) {
+    out << nd.year << "-" << nd.month << "-" << nd.day;
+    return out;
+}
+
+int main()
+{
+    int y0, m0, d0;
+    cin >> y0 >> m0 >> d0;
+    Date d1(y0, m0, d0);
+    cout << d1 << endl;
+}
+

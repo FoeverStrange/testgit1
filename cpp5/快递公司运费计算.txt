@@ -1,0 +1,160 @@
+// ConsoleApplication10.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+//
+
+#include <iostream>
+using namespace std;
+
+char place[6][10] = { "天津","上海","太原","广州","昆明","新疆" };
+/*void place(int No) {
+    switch (No)
+    {
+    case 1: cout << "天津" << endl; break;
+    case 2: cout << "上海" << endl; break;
+    case 3: cout << "太原" << endl; break;
+    case 4: cout << "广州" << endl; break;
+    case 5: cout << "昆明" << endl; break;
+    case 6: cout << "新疆" << endl; break;
+    }
+}*/
+class Expresscom
+{
+protected:
+    int No, Num;//城市编号、货物个数
+    double zh;//货物重量
+public:
+    Expresscom(int no, int num, double zhong) {
+        No = no;
+        Num = num;
+        zh = zhong;
+    };
+    virtual double Feiyong() = 0;//计算运费函数
+    virtual void Disp() = 0;//输出全部信息
+    virtual void Edisp()=0;//输出货物个数、货物重量信息
+};
+
+class ET :public Expresscom {
+public:
+    ET(int no, int num, double zhong) :Expresscom(no, num, zhong) {}
+    double Feiyong() {
+        int whos = (No - 1) * 3 + zh - 1;
+        return Mtable[whos];
+    }
+    void Edisp() {
+        cout << "重量：" << zh << "KG" << endl;
+        cout << "货物个数：" << Num << endl;
+
+    }
+    void Disp() {
+        cout << "公司名称：E通宝" << endl;
+        printf("目的地：%s\n",place[No-1]);
+        //place(No);
+        Edisp();
+        cout << "单价：" << Feiyong() << endl;
+        cout << "总运费：" << Num * Feiyong() << endl;
+    }
+private:
+    int Mtable[18] = { 10,	14,	18,	15,	19,	23,	15,	19,	23,	15,	21,	27,	15,	21,	27,	15,	25,	35 };
+
+};
+class EMS :public Expresscom {
+public:
+    EMS(int no, int num, double zhong) :Expresscom(no, num, zhong) {}
+    double Feiyong() {
+        int whos = (No - 1) * 3 + zh - 1;
+        return Mtable[whos];
+    }
+    void Edisp() {
+        cout << "重量：" << zh << "KG" << endl;
+        cout << "货物个数：" << Num << endl;
+
+    }
+    void Disp() {
+        cout << "公司名称：EMS" << endl;
+        printf("目的地：%s\n", place[No - 1]);
+        Edisp();
+        cout << "单价：" << Feiyong() << endl;
+        cout << "总运费：" << Num * Feiyong() << endl;
+    }
+private:
+    int Mtable[18] = { 26,	38,	50,	26,	38,	50,	26,	38,	50,	29,	47,	65,	35,	65,	95,	38,	66,	95 };
+
+};
+class SF :public Expresscom {
+public:
+    SF(int no, int num, double zhong) :Expresscom(no, num, zhong) {}
+    double Feiyong() {
+        int whos = (No - 1) * 3 + zh - 1;
+        return Mtable[whos];
+    }
+    void Edisp() {
+        cout << "重量：" << zh << "KG" << endl;
+        cout << "货物个数：" << Num << endl;
+
+    }
+    void Disp() {
+        cout << "公司名称：顺风" << endl;
+        printf("目的地：%s\n", place[No - 1]);
+        Edisp();
+        cout << "单价：" << Feiyong() << endl;
+        cout << "总运费：" << Num * Feiyong() << endl;
+    }
+private:
+    int Mtable[18] = { 12,	14,	16,	20,	30,	40,	20,	28,	36,	20,	34,	46,	20,	32,	44,	20,	34,	48 };
+
+};
+
+
+class YT :public Expresscom {
+public:
+    YT(int no, int num, double zhong) :Expresscom(no, num, zhong) {}
+    double Feiyong() {
+        int whos = (No - 1) * 3 + zh - 1;
+        return Mtable[whos];
+    }
+    void Edisp() {
+        cout << "重量：" << zh << "KG" << endl;
+        cout << "货物个数：" << Num << endl;
+
+    }
+    void Disp() {
+        cout << "公司名称：圆通" << endl;
+        printf("目的地：%s\n", place[No - 1]);
+        Edisp();
+        cout << "单价：" << Feiyong() << endl;
+        cout << "总运费：" << Num * Feiyong() << endl;
+    }
+private:
+    int Mtable[18] = { 10,	18,	26,	10,	18,	26,	12,	24,	36,	12, 22,	32,	15,	27,	39,	18,	33,	48 };
+
+};
+
+int main()
+{
+    int gongsi, city, num; double zhong;
+    cin >> gongsi >> city >> num >> zhong;
+
+    Expresscom* pkd[5];
+    ET kd1(city, num, zhong);
+    SF kd2(city, num, zhong);
+    EMS kd3(city, num, zhong);
+    YT kd4(city, num, zhong);
+
+    pkd[1] = &kd1;
+    pkd[2] = &kd2;
+    pkd[3] = &kd3;
+    pkd[4] = &kd4;
+
+    pkd[gongsi]->Disp();
+
+}
+
+// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
+// 调试程序: F5 或调试 >“开始调试”菜单
+
+// 入门使用技巧: 
+//   1. 使用解决方案资源管理器窗口添加/管理文件
+//   2. 使用团队资源管理器窗口连接到源代码管理
+//   3. 使用输出窗口查看生成输出和其他消息
+//   4. 使用错误列表窗口查看错误
+//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
+//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件

@@ -1,0 +1,64 @@
+﻿  main.cpp
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(23,37): error C2065: “WINDOW_HEIGHT”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(23,51): error C2065: “CELL_SIZE”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(23,35): error C2789: “CELL_HEIGHT”: 必须初始化常量限定类型的对象
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(23): message : 参见“CELL_HEIGHT”的声明
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(28,33): error C2065: “CELL_WIDTH”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(28,31): error C2789: “START_X”: 必须初始化常量限定类型的对象
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(28): message : 参见“START_X”的声明
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\main.cpp(20,117): error C2065: “WINDOW_HEIGHT”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\main.cpp(50,21): error C2039: “Update”: 不是“Snake”的成员
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(47): message : 参见“Snake”的声明
+  Snake.cpp
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(23,37): error C2065: “WINDOW_HEIGHT”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(23,51): error C2065: “CELL_SIZE”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(23,35): error C2789: “CELL_HEIGHT”: 必须初始化常量限定类型的对象
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(23): message : 参见“CELL_HEIGHT”的声明
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(28,33): error C2065: “CELL_WIDTH”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(28,31): error C2789: “START_X”: 必须初始化常量限定类型的对象
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(28): message : 参见“START_X”的声明
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(24,17): error C2065: “CELL_WIDTH”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(25,17): error C2065: “CELL_WIDTH”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(57,13): error C2039: “Update”: 不是“Snake”的成员
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.hpp(47): message : 参见“Snake”的声明
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(59,8): error C2065: “dead”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(63,5): error C3861: “UpdateInputControl”: 找不到标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(64,5): error C2065: “time”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(65,8): error C2065: “time”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(65,15): error C2065: “timeout”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(69,5): error C2065: “time”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(70,8): error C3861: “CheckWallCollision”: 找不到标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(70,32): error C3861: “CheckSelfCollision”: 找不到标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(72,9): error C2065: “dead”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(75,8): error C3861: “CheckFoodCollision”: 找不到标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(77,9): error C2065: “food”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(82,36): error C2065: “body”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(84,20): error C2065: “food”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(84,30): error C2065: “body”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(84,43): error C2065: “food”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(84,53): error C2065: “body”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(86,21): error C2065: “food”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(93,9): error C2065: “body”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(95,5): error C3861: “MoveSnake”: 找不到标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(132,41): error C2065: “CELL_WIDTH”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(189,18): error C2065: “x”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(189,20): error C2065: “y”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(190,9): error C3927: "->": 非函数声明符后不允许尾随返回类型
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(190,9): error C3484: 语法错误: 返回类型前应为“->”
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(190,20): error C3613: “->”后缺少返回类型(假定为“int”)
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(190,20): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(190,10): error C2146: 语法错误: 缺少“;”(在标识符“push_front”的前面)
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(191,1): error C2059: 语法错误:“}”
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(191,1): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(194,1): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(194,1): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(207,29): error C2065: “CELL_SIZE”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(208,29): error C2065: “CELL_SIZE”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(215,32): error C2065: “CELL_SIZE”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(216,32): error C2065: “CELL_SIZE”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(221,36): error C2065: “CELL_SIZE”: 未声明的标识符
+C:\Users\11874\Desktop\作业集合\cppAC\Snake\Snake.cpp(222,36): error C2065: “CELL_SIZE”: 未声明的标识符
+  正在生成代码...
